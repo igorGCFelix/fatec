@@ -1,7 +1,8 @@
 // Exercicios da Lista 1
 #include <math.h>
-#include<stdio.h>
-#define ex19
+#include <string.h>
+#include <stdio.h>
+#define ex20
 
 #ifdef ex17
 int main() {
@@ -80,6 +81,63 @@ int main() {
         printf("%.2f", resFinal);
     } while (resFinal < 50000);
 
+    return 0;
+
+}
+#endif
+
+//testando string
+#ifdef ex20
+int main() {
+    float n1, n2, n3, mediaEx, mediaFinal;
+    int id;
+    char conceito, situacao;
+
+    do {
+        printf("Digite o id do aluno: \n");
+        scanf("%d", &id);
+    }while (id < 0);
+
+    do {
+        printf("Digite a primeira nota do aluno: \n");
+        scanf("%f", &n1);
+    }while (n1<0 || n1 > 10);
+
+    do {
+        printf("Digite a segunda nota do aluno: \n");
+        scanf("%f", &n2);
+    }while (n2 < 0 || n2 > 10);
+
+    do {
+        printf("Digite a terceira nota do aluno: \n");
+        scanf("%f", &n3);
+    }while (n3 < 0 || n3 > 10);
+
+    mediaEx = (n1 + n2 + n3) / 3;
+    mediaFinal = (n1+ n2*2 + n3*3 + mediaEx)/7;
+
+    if (mediaFinal <4) {
+        conceito = "E";
+        situacao = "Reprovado";
+    }
+    else if (mediaFinal <6){
+        conceito = "D";
+        situacao = "Aprovado";
+    }
+    else if (mediaFinal <7.5){
+        conceito = "C";
+        situacao = "Aprovado";
+    }
+    else if (mediaFinal <6){
+        conceito = "B";
+        situacao = "Aprovado";
+    }
+    else{
+        conceito = "A";
+        situacao = "Aprovado";
+    }
+
+    printf("Aluno de id: %d, tirou as notas: %.2f, %.2f, %.2f; tendo como média de exercícios: %.2f e média final de: %.2f. Sendo assim, esse aluno foi %c com a menção %c! ", id, n1, n2, n3, mediaEx, mediaFinal, situacao, conceito);
     return 0;
 
 }
