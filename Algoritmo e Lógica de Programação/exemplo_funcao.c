@@ -3,7 +3,7 @@
 //
 #include <stdio.h>
 #include <locale.h>
-#define ex3
+#define ex4
 
 #ifdef ex1
 //Variável global
@@ -182,4 +182,46 @@ int main() {
     int maiorNumero = MaiorNumero();
     printf("O maior número do vetor é: %d\n", maiorNumero);
 }
+#endif
+
+#ifdef ex4
+int vet[10];
+void Armazena(int k)
+{ setlocale(LC_ALL,"");
+    int cont;
+    for(cont=0;cont<k;cont++)
+    {
+        printf("Digite um número na posição %d\n",cont);
+        scanf("%i",&vet[cont]);
+    }
+
+}
+//A função soma deverá retornar o valor da soma obtida para exibir na função main.
+int Soma(int k)
+{
+    int cont,soma=0;
+    for(cont=0;cont<k;cont++)
+    {
+        soma=soma+vet[cont];
+    }
+    return soma;
+
+}
+int main()
+{
+    int soma, k; //k representa a quantidade de números desejada pelo usuário considerando o tamanho máximo 10
+    do {
+        printf ("Digite a quantidade de números que deverá entre 1 e 10:\n");
+        scanf("%d", &k);
+        if (k<=0 || k>10) {
+            printf("Digite um número entre 1 e 10\n");
+        }
+    }while (k<=0 || k>10);
+
+    Armazena(k);
+    soma=Soma(k);
+    printf("A soma é %d\n",soma);
+    return 0;
+}
+
 #endif
