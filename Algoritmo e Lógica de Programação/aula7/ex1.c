@@ -9,9 +9,9 @@
 //    Crie a função Esfera que receba da função main o valor do raio e calcule o volume da esfera o seu volume (v = 4/3*Pi*R3).
 //    Exiba o resultado obtido no interior da função main.
 
-float Esfera() {
-    float volume, raio;
-    volume = 4*(3.14*pow(raio, 3))/3;
+float Esfera(float raio) {
+    float volume;
+    volume = 4*(3.14* pow(raio, 3) )/3;
     return volume;
 }
 
@@ -19,9 +19,8 @@ int main () {
     float raio, volume;
     printf("Digite o raio da esfera:\n");
     scanf("%f",&raio);
-    Esfera(raio);
+    volume = Esfera(raio);
 
-    volume=Esfera(volume);
     printf("O volume é: %.2f\n", volume);
     return 0;
 }
