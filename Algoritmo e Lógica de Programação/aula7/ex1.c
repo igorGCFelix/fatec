@@ -1,5 +1,5 @@
 //
-// Created by lab53 on 07/05/2026.
+// // Created by Andrews, Igor, Lucas
 //
 # include <stdio.h>
 # include <stdlib.h>
