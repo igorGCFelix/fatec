@@ -5,6 +5,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <math.h>
+#include <locale.h>
 
 //    Crie a função Esfera que receba da função main o valor do raio e calcule o volume da esfera o seu volume (v = 4/3*Pi*R3).
 //    Exiba o resultado obtido no interior da função main.
