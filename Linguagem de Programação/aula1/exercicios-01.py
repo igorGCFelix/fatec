@@ -1,7 +1,7 @@
 # 1
 print ("--- EXERCÍCIO 1 ---")
 nome = input("Digite o seu nome:\n")
-print ("Olá, ",nome, "\n")
+print ("Olá,",nome, "!\n")
 
 # 2
 print ("--- EXERCÍCIO 2 ---")
