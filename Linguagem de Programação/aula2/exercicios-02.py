@@ -26,11 +26,11 @@ print("O IMC do indivíduo é: ", imc)
 if imc < 18.5:
     print("O indivíduo está abaixo do peso")
 elif imc < 24.9:
-    print("O indivíduo peso normal")
+    print("O indivíduo está com o peso normal")
 elif imc < 29.9:
-    print("O indivíduo sobrepeso")
+    print("O indivíduo está sobrepeso")
 else:
-    print("O indivíduo obesidade")
+    print("O indivíduo está com obesidade")
 
 # #3
 print("--- EXERCÍCIO 3 ---")
