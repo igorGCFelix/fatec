@@ -40,6 +40,7 @@ a1 = float(input("Digite a primeira nota: \n"))
 a2 = float(input("Digite a segunda nota: \n"))
 if (a1 < 0 or a1 > 10 or a2 < 0 or a2 > 10):
     print("Nota de A1 e/ou A2 inválida")
+    #eu faria um loop, mas a atividade pediu assim
 else:
     media = (a1+a2)/2
     print("A média do aluno é ", media, "\n")
