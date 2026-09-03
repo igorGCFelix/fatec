@@ -1,36 +1,31 @@
 # 1
 print("--- EXERCÍCIO 1 ---")
-while True:
-    numero = int(input("Digite um número inteiro e positivo: \n"))
-    if numero > 0:
-        break
-
-if numero % 2 == 0:
+numero = int(input("Digite um número inteiro e positivo: \n"))
+if numero < 0:
+    print("Digite um número positivo")
+elif numero % 2 == 0:
     print("O número é par")
 else:
     print("O número é ímpar")
 
 # 2
 print("--- EXERCÍCIO 2 ---")
-while True:
-    peso = float(input("Digite o peso do indivíduo em decimal: \n"))
-    if peso > 0:
-        break
-while True:
-    altura = float(input("Digite a altura do indivíduo em decimal: \n"))
-    if altura > 0:
-        break
 
-imc = peso/altura**2
-print("O IMC do indivíduo é: ", imc)
-if imc < 18.5:
-    print("O indivíduo está abaixo do peso")
-elif imc < 24.9:
-    print("O indivíduo está com o peso normal")
-elif imc < 29.9:
-    print("O indivíduo está sobrepeso")
+peso = float(input("Digite o peso do indivíduo em decimal: \n"))
+altura = float(input("Digite a altura do indivíduo em decimal: \n"))
+if peso < 0 or altura < 0:
+    print("A altura ou o peso do indivíduo é inválido")
 else:
-    print("O indivíduo está com obesidade")
+    imc = peso/altura**2
+    print("O IMC do indivíduo é: ", imc)
+    if imc < 18.5:
+        print("O indivíduo está abaixo do peso")
+    elif imc < 24.9:
+        print("O indivíduo está com o peso normal")
+    elif imc < 29.9:
+        print("O indivíduo está sobrepeso")
+    else:
+        print("O indivíduo está com obesidade")
 
 # #3
 print("--- EXERCÍCIO 3 ---")
