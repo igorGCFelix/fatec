@@ -1,3 +1,5 @@
+#FALTA EU VERIFICAR OS INDICES PEDIDOS PELO USUÁRIO
+
 #1
 print("---Exercício 1 ---")
 # lista de alunos e médias
@@ -59,11 +61,24 @@ print("---Exercício 2 ---")
 #             print("Escolha entre a opção (S/N)!")
 
 #3
-# print("---Exercício 3 ---")
-# nomes = []
-# medias = []
+print("---Exercício 3 ---")
+nomes = [ "Ana", "Claudia", "Diego", "Diogo", "Elizia", "Fabricio", "Gabriella", "Marcelo", "Marcelly", "Tássia" ]
+medias = [ 8.5, 6.0, 4.5, 6.5, 9.5, 5.5, 8.0, 4.0, 9.0, 2.5]
 
-# # nomes = [ "Ana", "Claudia", "Diego", "Diogo", "Elizia", "Fabricio", "Gabriella", "Marcelo", "Marcelly", "Tássia" ]
-# # medias = [ 8.5, 6.0, 4.5, 6.5, 9.5, 5.5, 8.0, 4.0, 9.0, 2.5]
+for item in range(len(nomes)):
+    print(f"Aluno: {nomes[item]}, Média: {medias[item]}, Índice: {item}")
 
+opcao=input("Escolha entre uma das opções: [A]lterar, [E]xcluir ou [S]air")
+# 3A
+if opcao.upper() == "A":
+    indice=input("Digite o número do índice que deseja alterar: ")
+    print(f"Os dados do índice {indice}:\n Aluno: {nomes[indice]}, Média: {medias[indice]}")
 
+    nomeNovo=input("Digite o nome do aluno:")
+    mediaNova=input("Digite a média do aluno: ")
+    # tem que perguntar se deseja confirmar
+    medias[indice] = mediaNova
+    nomes[indice] = nomeNovo
+
+elif opcao.upper() == "E":
+    indice=input("Digite o número do índice que deseja alterar: ")
