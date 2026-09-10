@@ -1,4 +1,5 @@
 #FALTA EU VERIFICAR OS INDICES PEDIDOS PELO USUÁRIO
+#melhor eu fazer função? -> professor falou nd entt nem meto o bedelho
 
 #1
 print("---Exercício 1 ---")
@@ -61,6 +62,17 @@ print("---Exercício 2 ---")
 #             print("Escolha entre a opção (S/N)!")
 
 #3
+def verificarIndice(indice):
+    i = 0
+    while i < 1:
+        indice=int(input("Digite o número do índice que deseja alterar: ")) 
+        if indice < 0:
+            print("Valor inválido, digite novamente!")
+        else: 
+            print(f"Os dados do índice {indice}:\n Aluno: {nomes[indice]}, Média: {medias[indice]}")
+            i=1
+        
+
 print("---Exercício 3 ---")
 nomes = [ "Ana", "Claudia", "Diego", "Diogo", "Elizia", "Fabricio", "Gabriella", "Marcelo", "Marcelly", "Tássia" ]
 medias = [ 8.5, 6.0, 4.5, 6.5, 9.5, 5.5, 8.0, 4.0, 9.0, 2.5]
@@ -68,17 +80,17 @@ medias = [ 8.5, 6.0, 4.5, 6.5, 9.5, 5.5, 8.0, 4.0, 9.0, 2.5]
 for item in range(len(nomes)):
     print(f"Aluno: {nomes[item]}, Média: {medias[item]}, Índice: {item}")
 
-opcao=input("Escolha entre uma das opções: [A]lterar, [E]xcluir ou [S]air")
+opcao=input("Escolha entre uma das opções: [A]lterar, [E]xcluir ou [S]air \n")
 # 3A
 if opcao.upper() == "A":
-    indice=input("Digite o número do índice que deseja alterar: ")
-    print(f"Os dados do índice {indice}:\n Aluno: {nomes[indice]}, Média: {medias[indice]}")
-
+    # indice=input("Digite o número do índice que deseja alterar: ")
+    # print(f"Os dados do índice {indice}:\n Aluno: {nomes[indice]}, Média: {medias[indice]}")
+    verificarIndice()
     nomeNovo=input("Digite o nome do aluno:")
     mediaNova=input("Digite a média do aluno: ")
     # tem que perguntar se deseja confirmar
-    medias[indice] = mediaNova
-    nomes[indice] = nomeNovo
+    medias[verificarIndice()] = mediaNova
+    nomes[verificarIndice()] = nomeNovo
 
 elif opcao.upper() == "E":
     indice=input("Digite o número do índice que deseja alterar: ")
