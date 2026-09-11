@@ -1,5 +1,3 @@
-#FALTA EU VERIFICAR OS INDICES PEDIDOS PELO USUÁRIO
-#melhor eu fazer função? -> professor falou nd entt nem meto o bedelho
 
 #1
 print("---Exercício 1 ---")
