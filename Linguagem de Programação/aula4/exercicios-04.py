@@ -62,15 +62,19 @@ print("---Exercício 2 ---")
 #             print("Escolha entre a opção (S/N)!")
 
 #3
-def verificarIndice(indice):
+def verificarIndice(tamanho):
     i = 0
     while i < 1:
-        indice=int(input("Digite o número do índice que deseja alterar: ")) 
-        if indice < 0:
-            print("Valor inválido, digite novamente!")
-        else: 
-            print(f"Os dados do índice {indice}:\n Aluno: {nomes[indice]}, Média: {medias[indice]}")
-            i=1
+        try:
+            indice=int(input("Digite o número do índice que deseja alterar: ")) 
+            if indice < 0 or indice > tamanho:
+                print("Valor inválido, digite novamente!")
+            else: 
+                print(f"Os dados do índice {indice}:\n Aluno: {nomes[indice]}, Média: {medias[indice]}")
+                i=1
+                return indice
+        except ValueError:
+            print("Digite um número inteiro")
         
 
 print("---Exercício 3 ---")
@@ -83,14 +87,44 @@ for item in range(len(nomes)):
 opcao=input("Escolha entre uma das opções: [A]lterar, [E]xcluir ou [S]air \n")
 # 3A
 if opcao.upper() == "A":
-    # indice=input("Digite o número do índice que deseja alterar: ")
-    # print(f"Os dados do índice {indice}:\n Aluno: {nomes[indice]}, Média: {medias[indice]}")
-    verificarIndice()
+    #vai receber e verificar o indice
+    indice = verificarIndice(len(nomes))
+
+    #recebendo os novos valores
     nomeNovo=input("Digite o nome do aluno:")
-    mediaNova=input("Digite a média do aluno: ")
-    # tem que perguntar se deseja confirmar
-    medias[verificarIndice()] = mediaNova
-    nomes[verificarIndice()] = nomeNovo
+    mediaNova=float(input("Digite a média do aluno: "))
+
+    #confirmação das alterações
+    b=0
+    while b<1: 
+        resposta = input("Deseja confirmar essas alterações (S/N)?")
+        if resposta.upper() == "S":
+            medias[indice] = mediaNova
+            nomes[indice] = nomeNovo
+            print("Alterações feitas com sucesso!")
+            print(f"Alterações: Aluno {nomes[indice]}, Média {medias[indice]}")
+            b=1
+        elif resposta.upper() == "N":
+            print("Alterações canceladas!")
+            b=1
+        else:
+            print("Valor inválido, responda novamente.")
 
 elif opcao.upper() == "E":
-    indice=input("Digite o número do índice que deseja alterar: ")
+    indice=verificarIndice(len(nomes))
+
+    #confirmação da exclusão
+    b=0
+    while b<1: 
+        resposta = input("Deseja confirmar essa exclusão (S/N)?")
+        if resposta.upper() == "S":
+            nomes.pop(indice)
+            medias.pop(indice)
+            print("Exclusão feita com sucesso!")
+            b=1
+        elif resposta.upper() == "N":
+            print("Exclusão cancelada!")
+            b=1
+        else:
+            print("Valor inválido, responda novamente.")
+
