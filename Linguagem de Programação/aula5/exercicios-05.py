@@ -39,6 +39,8 @@ def validar_nota(nota):
 # jeito elegante
 # def validar_nota(nota):
 #     return 0 <= nota <= 10
+#     ----------- ou -------------
+#     return nota>=0 and nota <=10
 
 def calcular_media(a1, a2):
     media = (a1+a2)/2
