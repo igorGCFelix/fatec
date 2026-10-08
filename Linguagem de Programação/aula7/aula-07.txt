@@ -1,0 +1,18 @@
+CASO DE USO EXPANDIDO
+metodo agil usa um sprint ou framework que produz um minimo produto viavel, o necessário para o usuário
+Casos de uso também são escritos
+
+Caso de uso: Efetuar login
+Atores: Usuário, Sistema
+
+FLUXO PRINCIPAL DE SUCESSO -> o que faria meu código se não tivesse erro nenhum (cenário feliz) -> invoca uma sequencia de passos numerados
+
+Fluxo principal de sucesso:
+1- O usuário entra com seu nome de usuário, senha e confirma.
+2- O sistema valida os dados fornecidos e direciona o usuário para a página principal.
+
+Com base nos requisitos funcionais vc faz o caso de uso
+
+FLUXO ALTERNATIVO -> pensar no que pode dar errado
+
+Fluxo alternativo: 

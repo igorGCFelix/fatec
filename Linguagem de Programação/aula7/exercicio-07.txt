@@ -1,0 +1,50 @@
+Consultar
+Incluir
+Excluir
+Alterar
+
+CASO DE USO EXPANDIDO
+
+FLUXO PRINCIPAL DE SUCESSO:
+
+Caso de uso: Consultar
+1- O sistema exibe todas as médias e nomes dos alunos.
+
+Caso de uso: Incluir
+1- O usuário irá entrar com o nome e a média do aluno.
+2- O sistema armazena os dados incluidos do aluno.
+
+Caso de uso: Excluir
+1- O sistema irá pedir o índice do aluno que deseja excluir.
+2- O sistema mostra o nome e a média do aluno.
+3- O sistema pergunta se deseja continuar com a exclusão
+4- O usuário confirma a exclusão.
+5- O sistema excluirá os dados do aluno escolhido.
+
+Caso de uso: Alterar
+1- O sistema irá pedir o índice do aluno que deseja alterar os dados.
+2- O usuário escolhe o aluno que deseja alterar os dados.
+3- O sistema apresenta o nome e média do aluno escolhido
+4- O sistema pergunta se deseja continuar
+5- O usuário confirma a continuação 
+6- O sistema pede o nome que deseja alterar.
+7- O usuário preenche o nome.
+8- O sistema pede a média que deseja alterar.
+9- O usuário preenche e 
+10- O sistema pergunta se deseja continuar
+11- confirma a alteração.
+12- O sistema irá alterar os dados com os novos valores.
+
+----------------------------------------------------------------------
+
+FLUXO ALTERNATIVO:
+
+Caso de uso: Consultar
+1a. Não há dados a exibir
+    1. O sistema informa que não há alunos/notas a exibir.
+
+Caso de uso: Incluir
+1a. Nome e/ou média de aluno não informada.
+    1. O sistema informa que o nome e/ou a média do aluno não foi informada.
+1b. Média de aluno inválida.
+    1. O sistema informa que a média do aluno é inválida
