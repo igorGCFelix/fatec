@@ -13,13 +13,15 @@ Caso de uso: Consultar
 Caso de uso: Incluir
 1- O usuário irá entrar com o nome e a média do aluno.
 2- O sistema armazena os dados incluidos do aluno.
+3- O sistema exibe uma imagem confirmando a inclusão do aluno
 
 Caso de uso: Excluir
 1- O sistema irá pedir o índice do aluno que deseja excluir.
-2- O sistema mostra o nome e a média do aluno.
-3- O sistema pergunta se deseja continuar com a exclusão
-4- O usuário confirma a exclusão.
-5- O sistema excluirá os dados do aluno escolhido.
+2- O usuário digita o índice do aluno
+3- O sistema mostra o nome e a média do aluno.
+4- O sistema pergunta se deseja continuar com a exclusão
+5- O usuário confirma a exclusão.
+6- O sistema excluirá os dados do aluno escolhido.
 
 Caso de uso: Alterar
 1- O sistema irá pedir o índice do aluno que deseja alterar os dados.
@@ -30,7 +32,7 @@ Caso de uso: Alterar
 6- O sistema pede o nome que deseja alterar.
 7- O usuário preenche o nome.
 8- O sistema pede a média que deseja alterar.
-9- O usuário preenche e 
+9- O usuário preenche a média
 10- O sistema pergunta se deseja continuar
 11- confirma a alteração.
 12- O sistema irá alterar os dados com os novos valores.
@@ -46,5 +48,61 @@ Caso de uso: Consultar
 Caso de uso: Incluir
 1a. Nome e/ou média de aluno não informada.
     1. O sistema informa que o nome e/ou a média do aluno não foi informada.
+    2. O sistema encerra o processo.
 1b. Média de aluno inválida.
     1. O sistema informa que a média do aluno é inválida
+    2. O sistema encerra o processo.
+
+Caso de uso: Excluir
+2a. O índice citado não existe na lista
+    1. O sistema informa que não há um aluno com esse índice
+    2. O sistema encerra o processo.
+2b. O índice digitado é inválido (caractere, número negativo, número em decimal, etc)
+    1. O sistema informa que o índice fornecido é inválido.
+    2 O sistema encerra o processo.
+5a. O usuário digita (S/N) minúsculo para confirmar
+    1. O sistema irá por meio do upper() deixar o valor inserido em caixa alterar
+    2. O sistema irá prosseguir com a comparação
+5b. O usuário digita (S)
+    1. o sistema irá prosseguir com a exclusão
+5c. O usuário digita (N)
+    1. O sistema irá cancelar a exclusão e encerrar o processo
+5d. O usuário digita um valor inválido dentre as opções
+    1. O sistema emite uma mensagem de erro, falando da invalidez do valor inserido
+    2. O sistema voltará a emitir a pergunta até que a condição de (S) ou (N) seja realizada
+
+Caso de uso: Alterar
+2a. O índice citado não existe na lista
+    1. O sistema informa que não há um aluno com esse índice
+    2. O sistema encerra o processo.
+2b. O índice digitado é inválido (caractere, número negativo, número em decimal, etc)
+    1. O sistema informa que o índice fornecido é inválido.
+4a. O usuário digita (S/N) minúsculo para confirmar
+    1. O sistema irá por meio do upper() deixar o valor inserido em caixa alterar
+    2. O sistema irá prosseguir com a comparação
+4b. O usuário digita (S)
+    1. o sistema irá prosseguir com a exclusão
+4c. O usuário digita (N)
+    1. O sistema irá cancelar a exclusão e encerrar o processo
+4d. O usuário digita um valor inválido dentre as opções
+    1. O sistema emite uma mensagem de erro, falando da invalidez do valor inserido
+    2. O sistema voltará a emitir a pergunta até que a condição de (S) ou (N) seja realizada
+7a. O usuário digita um número ao invés do nome
+    1. O sistema emite uma mensagem de erro, falando da invalidez do número no campo nome
+    2. O sistema voltará a emitir a pergunta até que a condição de um nome com somente caracteres seja atendida
+9a. O usuário digita um caractere ao invés de um número válido
+    1. O sistema emite uma mensagem de erro, falando da invalidez do caractere no campo média
+    2. O sistema voltará a emitir a pergunta até que a condição de um nome com somente caracteres seja atendida
+9b. O usuário digita uma média acima de 10 ou menor que 0
+    1. O sistema emite uma mensagem de erro, avisando que a média estrapolou o intervalo de notas permitidos
+    2. O sistema voltará a emitir a pergunta até que a condição de uma média dentro do intervalo permitido seja aceita
+11a. O usuário digita (S/N) minúsculo para confirmar
+    1. O sistema irá por meio do upper() deixar o valor inserido em caixa alterar
+    2. O sistema irá prosseguir com a comparação
+11b. O usuário digita (S)
+    1. o sistema irá prosseguir com a exclusão
+11c. O usuário digita (N)
+    1. O sistema irá cancelar a exclusão e encerrar o processo
+11d. O usuário digita um valor inválido dentre as opções
+    1. O sistema emite uma mensagem de erro, falando da invalidez do valor inserido
+    2. O sistema voltará a emitir a pergunta até que a condição de (S) ou (N) seja realizada

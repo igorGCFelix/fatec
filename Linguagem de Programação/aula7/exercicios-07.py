@@ -11,6 +11,7 @@ def menu():
                 
             case 2:
                 listar_notas(nomes, notas)
+                print("Aluno e média adicionador com sucesso!")
             case 3:
                 indice = input("Digite o índice do aluno que você deseja alterar: \n")
                 print(f"Nome do aluno: {nomes[indice]}, média do aluno: {notas[indice]}")
@@ -40,9 +41,12 @@ def adicionar_nota(nome, nota):
     notas.append(nota)
 
 def listar_notas(nomes, notas): 
-    print("--- Lista ---")
-    for item in range(len(nomes)):
-        print(f"Aluno: {nomes[item]}, Média: {notas[item]}, Índice: {item}")
+    if nomes == []:
+        print("Não há alunos/notas para exibir")
+    else:
+        print("--- Lista ---")
+        for item in range(len(nomes)):
+            print(f"Aluno: {nomes[item]}, Média: {notas[item]}, Índice: {item} \n")
 
 def excluir_nota(indice):
     notas.pop(indice)
