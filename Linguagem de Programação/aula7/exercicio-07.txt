@@ -34,7 +34,7 @@ Caso de uso: Alterar
 8- O sistema pede a média que deseja alterar.
 9- O usuário preenche a média
 10- O sistema pergunta se deseja continuar
-11- confirma a alteração.
+11- O usuário confirma a alteração.
 12- O sistema irá alterar os dados com os novos valores.
 
 ----------------------------------------------------------------------
@@ -49,9 +49,16 @@ Caso de uso: Incluir
 1a. Nome e/ou média de aluno não informada.
     1. O sistema informa que o nome e/ou a média do aluno não foi informada.
     2. O sistema encerra o processo.
-1b. Média de aluno inválida.
+1b. Nome de aluno inválido (com algum algarismo)
+    1. O sistema informa que o nome é inválido
+    2. O sistema voltará a emitir a pergunta até que a condição do nome válido seja realizada
+1c. Média de aluno inválida.
     1. O sistema informa que a média do aluno é inválida
-    2. O sistema encerra o processo.
+    2. O sistema voltará a emitir a pergunta até que a condição da média válida seja realizada
+1d. Média fora do intervalo permitido (0 até 10)
+    1. O sistema informa que a média inserida está fora do intervalo permitido
+    2. O sistema voltará a emitir a pergunta até que a condiçao da média seja atendida
+
 
 Caso de uso: Excluir
 2a. O índice citado não existe na lista

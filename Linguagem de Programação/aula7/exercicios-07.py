@@ -18,17 +18,16 @@ def menu():
                 
             case 3:
                 #Alterar notas
-                # fazer o fluxo alternativo
-                
-                indice = int(input("Digite o índice do aluno que você deseja alterar: \n"))
-                if validar_indice(indice):
+                indice = input("Digite o índice do aluno que você deseja alterar: \n")
+                indice = validar_indice(indice)
+                if indice is not None:
                     print(f"Nome do aluno: {nomes[indice]}, média do aluno: {notas[indice]}")
 
                     continuar=deseja_continuar()
                 
                     if continuar: 
-                        nome = input("Digite o novo nome do aluno")
-                        nota = input("Digite a nova nota do aluno ")
+                        nome = input("Digite o novo nome do aluno: \n")
+                        nota = input("Digite a nova nota do aluno: \n ")
                     
                         continuar=deseja_continuar
                     
@@ -40,11 +39,16 @@ def menu():
                         
             case 4:
                 #Excluir notas
-                indice = input("Digite o índice do aluno que deseja excluir")
-                print(
-                    f"Nome do aluno: {nomes[indice]}, média do aluno: {notas[indice]}")
-                input("Deseja continuar? (S/N) \n")
-                excluir_nota(indice)
+                # fazer o fluxo alternativo
+                indice = input("Digite o índice do aluno que deseja excluir: \n")
+                indice = validar_indice(indice)
+                if indice is not None:
+                    print(f"Nome do aluno: {nomes[indice]}, média do aluno: {notas[indice]}")
+                    
+                    continuar=deseja_continuar()
+                    
+                    if continuar:excluir_nota(indice)
+                    else: print("Operação cancelada.")
                 
             case 0:
                 #Sair
@@ -84,13 +88,16 @@ def alterar_nota(indice, nome, nota):
 
 def validar_indice(indice):
     try: 
-        if  indice > len(nomes) or indice < 0:
-            print("O índice inserido não existe na lista de alunos. Verifique os alunos ja cadastrados realizando a **Consulta de Notas [2]**")
+        indice = int(indice)
+        if  indice >= len(nomes) or indice < 0:
+            print("O índice inserido não existe na lista de alunos. Verifique os alunos ja cadastrados realizando a Consulta de Notas [2]")
             print("Operação cancelada.")
+            return None
         else:
             return indice
     except ValueError:
         print("Certifique-se de digitar somente números inteiros para se referir ao índice.")
+        return None
 
 def receber_nome():
     a = False
