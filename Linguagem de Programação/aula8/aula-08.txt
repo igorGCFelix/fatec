@@ -1,1 +1,3 @@
 estruturas de dados heterogeneas -> matriz
+Métodos de python -> listao do sobrino
+

@@ -61,6 +61,9 @@ for indice, valor in matriz_notas:
 # for a in matriz_notas:
 #     print(a[0], matriz_notas[1])
 
+#-------------------------------------------------------------------------------------------------
+
+
 
 
 
