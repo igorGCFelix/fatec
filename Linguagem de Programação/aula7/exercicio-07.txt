@@ -113,3 +113,6 @@ Caso de uso: Alterar
 11d. O usuário digita um valor inválido dentre as opções
     1. O sistema emite uma mensagem de erro, falando da invalidez do valor inserido
     2. O sistema voltará a emitir a pergunta até que a condição de (S) ou (N) seja realizada
+
+#MELHOR EU FAZER UMAS FUNÇÕES CONTROLADORAS PARA ORGANIZAR MELHOR O CÓDIGO
+#FAZER UM TRATAMENTO DE ERRO PARA O MENU

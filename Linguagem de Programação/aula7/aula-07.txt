@@ -15,4 +15,6 @@ Com base nos requisitos funcionais vc faz o caso de uso
 
 FLUXO ALTERNATIVO -> pensar no que pode dar errado
 
-Fluxo alternativo: 
+Fução controladoras (controllers) -> representa o caso de uso com fluxo principal de sucesso e o alternativo FORA DO CASE. Todo o código que ficava dentro de uma CASE vai para uma outra função e depois é chamado
+-> pega toda o case e faz uma função e retorna para quem pediu
+FUnção auxiliar -> faz pequenas tarefas repetitivas que auxiliam uma tarefa maior
