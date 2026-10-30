@@ -55,8 +55,8 @@ for i in range(len(matriz_notas)):
         print(matriz_notas[i][j])
 
 print("Mostrando os valores da matriz com um for só")
-for indice, valor in matriz_notas:
-    print (indice, valor)
+for nome, nota in matriz_notas:
+    print (nome, nota)
 
 # for a in matriz_notas:
 #     print(a[0], matriz_notas[1])

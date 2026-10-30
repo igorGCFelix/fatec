@@ -13,7 +13,7 @@ def menu():
 
             case 2:
                 #Consultar notas
-                listar_notas(nomes, notas)
+                listar_notas(alunos)
                 
                 
             case 3:
@@ -21,7 +21,7 @@ def menu():
                 indice = input("Digite o índice do aluno que você deseja alterar: \n")
                 indice = validar_indice(indice)
                 if indice is not None:
-                    print(f"Nome do aluno: {nomes[indice]}, média do aluno: {notas[indice]}")
+                    print(f"Nome do aluno: {alunos[indice][0]}, média do aluno: {alunos[indice][1]}")
 
                     continuar=deseja_continuar()
                 
@@ -43,7 +43,7 @@ def menu():
                 indice = input("Digite o índice do aluno que deseja excluir: \n")
                 indice = validar_indice(indice)
                 if indice is not None:
-                    print(f"Nome do aluno: {nomes[indice]}, média do aluno: {notas[indice]}")
+                    print(f"Nome do aluno: {alunos[indice][0]}, média do aluno: {alunos[indice][1]}")
                     
                     continuar=deseja_continuar()
                     
@@ -64,32 +64,29 @@ def menu():
 
 
 def adicionar_nota(nome, nota):
-    nomes.append(nome)
-    notas.append(nota)
+    alunos.append([nome, nota])
 
-def listar_notas(nomes, notas):
-    if nomes == []:
+def listar_notas(alunos):
+    if alunos == []:
         print("Não há alunos/notas para exibir")
     else:
         print("--- Lista ---")
-        for item in range(len(nomes)):
-            print(
-                f"Aluno: {nomes[item]}, Média: {notas[item]}, Índice: {item}")
+        for nome, nota in alunos:
+            print(nome, nota)
 
 def excluir_nota(indice):
-    notas.pop(indice)
-    nomes.pop(indice)
+    alunos.pop(indice)
 
 def alterar_nota(indice, nome, nota):
-    nomes[indice] = nome
-    notas[indice] = nota
+    alunos[indice] = [nome, nota]
+    
 
 
 
 def validar_indice(indice):
     try: 
         indice = int(indice)
-        if  indice >= len(nomes) or indice < 0:
+        if  indice >= len(alunos) or indice < 0:
             print("O índice inserido não existe na lista de alunos. Verifique os alunos ja cadastrados realizando a Consulta de Notas [2]")
             print("Operação cancelada.")
             return None
@@ -103,12 +100,10 @@ def receber_nome():
     a = False
     while not a:
         nome = input("Digite o nome do aluno: \n")
-        #verificando se o usuário n digitou algum número no nome
         tem_numero = any(char.isdigit() for char in nome)
         
         if tem_numero:
             print("O nome digitado é inválido pela existência de um algarismo! \n")
-        #vou usar o .strip() para que o jumento do usuário n passe só com o espaço
         elif not nome.strip():
             print("Você deve preencher esse campo para prosseguir! \n")
         else:
@@ -152,6 +147,13 @@ def deseja_continuar():
 
 # -------
 
-nomes = []
-notas = []
+#substituindo as LISTAS PARALELAS por uma MATRIZ
+# nomes = []
+# notas = []
+# alunos = [
+#     [nome1, nota1],
+#     [nome2, nota2],
+# ]
+
+alunos = []
 menu()

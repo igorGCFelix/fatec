@@ -1,3 +1,23 @@
 estruturas de dados heterogeneas -> matriz
 Métodos de python -> listao do sobrino
 
+Lista de métodos importantes:
+.upper() -> deixa tudo em maiusculo
+.title() -> maíscula na primeira letra
+.strip() -> tira os espaços nas extremidades
+.replace() -> substitui uma cadeia por outra
+.find() -> retorna o índice da primeira ocorrência
+.split() -> divide o texto a partir de algum caractere
+.join() -> junta textos ligados por um separador
+.isalnum() -> retorna true se letras e/ou números
+.isdigit() -> retorna true se tiver apenas números 
+isalpha() -> retornar true se apenas letras
+.count() -> conta a quantidade de ocorrências de um termo
+
+.capitalize() -> primeira letra do primeiro termo maíscula
+.lstrip() -> remove os espaços da esquerda
+.rstrip() -> remove os espaços da direita
+.lower() -> conversão total para minúsculas
+.startswitch() -> "começa com condição" retorna booleano
+.endwith() -> "termina com condição" retorna booleano 
+
