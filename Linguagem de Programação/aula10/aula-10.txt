@@ -1,0 +1,65 @@
+MANIPULAÇÃO DE ARQUIVOS 
+Toda vez que executamos nosso projeto de aula, os dados armazenados na memória são perdidos.
+Por meio da manipulação de arquivos podemos persistir com as informações.
+
+Existem diferentes formas de armazenar informações em arquivos, um deles, é o JSON (JavaScript Object Notation)
+O JSON é independente de linguagem de programação, podendo ser usado em diferentes aplicações de diferentes linguagens.
+VANTAGENS -> permitir que informações sejam organizadas de maneira estruturada, utilizando pares de chave e valor e coleções de dados
+
+EXEMPLO:
+{
+    "1": {
+        "nome": "Cleber",
+        "media": 7.5
+    },
+    "2": {
+        "nome": "Maria",
+        "media": 9.5
+    },
+    "3": {
+        "nome": "Sandro",
+        "media": 7.5
+    }
+}
+
+No formato JSON as CHAVES dos objetos são sempre TEXTOS
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+De forma nativa, o Python conta com o módulo json, que disponibiliza algumas funções:
+json.dump() -> converte uma estrutura de dados Python (como listas, dicionários, etc) para JSON e grava o resultado em um arquivos
+json.load() -> lê o conteúdo o conteúdo de um arquivo JSON e converte em uma estrutura de dados Python
+**Nem todas as estruturas de dados do Python possuem representações diretas no JSON**
+
+Para ser manipulado, o arquivo precisa estar aberto, o que é feito pela função open()
+
+EXEMPLO:
+arquivoSisNotas = open("alunos.json", "w", encoding="utf-8")
+
+No exemplo acima abrimos o arquivo alunos.json e o associamos à variável arquivoSisNotas
+O "w" sinaliza o modo de abertura do arquivo
+O enconding="utf-8" define a codificação utilizada para trabalhar com os caracteres do arquivo
+
+w (write) -> modo de gravação e que cria o arquivo caso ele não exista
+r (read) -> modo de leitura que consulta o arquivo
+a (append) -> modo que permite o acréscimo de dados no final do arquivo, sem reescrevê-load
+
+w (write) -> caso o arquivo já exita, seu conteúdo será excluído no ato de abertura
+r (read) -> pressupõe que o arquivo exista, caso não exista vai dar erro
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+EXEMPLO:
+import json
+
+arquivoSisNotas = open("alunos.json", "r", encoding="utf-8")
+alunos = json.load(arquivoSisNotas)
+arquivoSisNotas.close()
+
+No exemplo acima, a função json.load() lê o conteúdo do arquivo e converte sua estrutura JSON em um dicionário Python, permitindo que possamos manipular os dados como de praxe. No caso do exemplo, estamos consultando a média do aluno identificado pelo registro "2":
+print(alunos["2"]["media"])
+Observação importantíssima: como as chaves são textos no JSON, ainda que o dicionário original tenha utilizado números como chaves, após a leitura do arquivo devemos passar a acessá-las como strings.
+
+o arquivo permanecerá aberto, consumindo recursos do sistema e podendo ocasionar problemas, como a não gravação de todos os dados esperados ou dificuldades para realizar outras operações com o arquivo.
+Logo, sempre que se abre um arquivo, precisa-se fechá-lo após a conclusão das operações:
+arquivoSisNotas.close()
