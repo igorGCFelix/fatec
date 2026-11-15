@@ -3,8 +3,12 @@
         "nome": "igor",
         "nota": 10.0
     },
-    "2": {
-        "nome": "marcio",
-        "nota": 4.0
+    "3": {
+        "nome": "rafael",
+        "nota": 9.8
+    },
+    "4": {
+        "nome": "Lucas",
+        "nota": "10"
     }
 }

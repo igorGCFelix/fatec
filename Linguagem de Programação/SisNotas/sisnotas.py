@@ -8,6 +8,9 @@ import os
 #definindo o caminho absoluto com base no local do arquivo .py
 pasta = os.path.dirname(os.path.abspath(__file__))
 caminho_json = os.path.join(pasta, "alunos.json")
+
+# -------------------------------------------------------------------------------------------------
+#Função menu
             
 def menu():
     a = False
@@ -28,16 +31,16 @@ def menu():
                 
             case 3:
                 #Alterar notas
-                chave = input("Digite o índice do aluno que você deseja alterar: \n")
+                chave = input("Digite a chave do aluno que você deseja alterar: \n")
                 chave = validar_chave(chave)
                 if chave is not None:
-                    print(f"Nome do aluno: {alunos[chave][0]}, média do aluno: {alunos[chave][1]}")
+                    print(f"Nome do aluno: {alunos[chave]["nome"]}, média do aluno: {alunos[chave]["nota"]}")
 
                     continuar=deseja_continuar()
                 
                     if continuar: 
                         nome = input("Digite o novo nome do aluno: \n")
-                        nota = input("Digite a nova nota do aluno: \n ")
+                        nota = input("Digite a nova nota do aluno: \n")
                     
                         continuar=deseja_continuar
                     
@@ -49,11 +52,10 @@ def menu():
                         
             case 4:
                 #Excluir notas
-                # fazer o fluxo alternativo
                 chave = input("Digite o índice do aluno que deseja excluir: \n")
                 chave = validar_chave(chave)
                 if chave is not None:
-                    print(f"Nome do aluno: {alunos[chave][0]}, média do aluno: {alunos[chave][1]}")
+                    print(f"Nome do aluno: {alunos[chave]["nome"]}, média do aluno: {alunos[chave]["nota"]}")
                     
                     continuar=deseja_continuar()
                     
@@ -74,6 +76,7 @@ def menu():
                 
 
 # -------------------------------------------------------------------------------------------------
+#Manipulação JSON
 
 def iniciar_arquivo_json():
     if os.path.exists(caminho_json):
@@ -81,13 +84,19 @@ def iniciar_arquivo_json():
             return json.load(arquivo)
     else:
         return {}
+    
+def write_arquivo_json(alunos):
+    with open(caminho_json, "w", encoding="utf-8") as arquivoSisNotas:
+            json.dump(alunos, arquivoSisNotas, ensure_ascii=False, indent=4)
+
+# -------------------------------------------------------------------------------------------------
+#Funçoes de adicionar/listar/excluir/alterar
 
 def adicionar_nota(alunos, nome, nota):
     chave=str(len(alunos)+1)
     alunos[chave] = {"nome": nome, "nota": nota}
     
-    with open(caminho_json, "w", encoding="utf-8") as arquivoSisNotas:
-        json.dump(alunos, arquivoSisNotas, ensure_ascii=False, indent=4)
+    write_arquivo_json(alunos)
 
 def listar_notas(alunos):
     if not alunos:
@@ -98,15 +107,16 @@ def listar_notas(alunos):
         for chave, dados in alunos.items(): #vai percorrer os items do dicionário
             print(f"Chave: {chave}; Nome: {dados["nome"]}; Média: {dados["nota"]}")
         
-
 def excluir_nota(chave):
-    alunos.pop(chave)
-
+    del alunos[chave]
+    write_arquivo_json(alunos)
+    
 def alterar_nota(chave, nome, nota):
-    alunos[chave] = [nome, nota]
+    alunos[chave] = {"nome": nome, "nota": nota}
+    write_arquivo_json(alunos)
     
 # -------------------------------------------------------------------------------------------------
-
+#Funções que se repetem muito
 
 def validar_chave(chave):
     if chave not in alunos:
@@ -165,14 +175,6 @@ def deseja_continuar():
 
 
 # -------------------------------------------------------------------------------------------------
-
-"""
-Dicionário
-alunos = {
-    1:{},
-    2:{}
-}
-"""
 
 alunos = iniciar_arquivo_json()
 menu()
