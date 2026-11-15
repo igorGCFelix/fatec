@@ -5,6 +5,10 @@ import json
 #importando a biblioteca OS para eu poder verificar se existe um arquivo
 import os
 
+#definindo o caminho absoluto com base no local do arquivo .py
+pasta = os.path.dirname(os.path.abspath(__file__))
+caminho_json = os.path.join(pasta, "alunos.json")
+            
 def menu():
     a = False
     while not a:
@@ -72,29 +76,28 @@ def menu():
 # -------------------------------------------------------------------------------------------------
 
 def iniciar_arquivo_json():
-    nome_arquivo = "alunos.json"
-    if os.path.exists(nome_arquivo):
-            with open(nome_arquivo, "r", encoding="utf-8") as arquivo:
-                alunos = json.load(arquivo)
-                return alunos
+    if os.path.exists(caminho_json):
+        with open(caminho_json, "r", encoding="utf-8") as arquivo:
+            return json.load(arquivo)
     else:
-        alunos = {}
-        return alunos
+        return {}
 
 def adicionar_nota(alunos, nome, nota):
     chave=str(len(alunos)+1)
     alunos[chave] = {"nome": nome, "nota": nota}
     
-    with open("alunos.json", "w", encoding="utf-8") as arquivoSisNotas:
+    with open(caminho_json, "w", encoding="utf-8") as arquivoSisNotas:
         json.dump(alunos, arquivoSisNotas, ensure_ascii=False, indent=4)
 
 def listar_notas(alunos):
-    if alunos == {}:
+    if not alunos:
         print("Não há alunos/notas para exibir")
     else:
         print("--- Lista ---")
-        for nome, nota in alunos:
-            print(nome, nota)
+        
+        for chave, dados in alunos.items(): #vai percorrer os items do dicionário
+            print(f"Chave: {chave}; Nome: {dados["nome"]}; Média: {dados["nota"]}")
+        
 
 def excluir_nota(chave):
     alunos.pop(chave)
@@ -106,17 +109,11 @@ def alterar_nota(chave, nome, nota):
 
 
 def validar_chave(chave):
-    try: 
-        chave = int(chave)
-        if  chave >= len(alunos) or chave < 0:
-            print("O índice inserido não existe na lista de alunos. Verifique os alunos ja cadastrados realizando a Consulta de Notas [2]")
-            print("Operação cancelada.")
-            return None
-        else:
-            return chave
-    except ValueError:
-        print("Certifique-se de digitar somente números inteiros para se referir ao índice.")
+    if chave not in alunos:
+        print("O índice inserido não existe. Consulte as notas [2] para ver os alunos cadastrados.")
+        print("Operação cancelada.")
         return None
+    return chave
 
 def receber_nome():
     a = False
