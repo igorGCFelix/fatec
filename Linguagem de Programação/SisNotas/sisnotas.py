@@ -141,7 +141,6 @@ def receber_nome():
     return nome
 
 def receber_media():
-    
     a = False
     while not a:
         try:
